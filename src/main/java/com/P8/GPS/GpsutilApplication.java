@@ -1,3 +1,5 @@
+package com.P8.GPS;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
