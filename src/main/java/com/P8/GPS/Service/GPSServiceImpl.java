@@ -4,9 +4,11 @@ package com.P8.GPS.Service;
 import com.P8.GPS.DTO.AttractionDTO;
 import com.P8.GPS.DTO.LocationDTO;
 import com.P8.GPS.DTO.VisitedLocationDTO;
+
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 
@@ -15,7 +17,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
-@Service
+@Repository
 public class GPSServiceImpl implements GPSService {
 
     private final GpsUtil gpsUtil;
