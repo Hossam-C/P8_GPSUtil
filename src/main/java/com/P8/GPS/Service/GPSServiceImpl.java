@@ -1,6 +1,7 @@
 package com.P8.GPS.Service;
 
 
+import com.P8.GPS.Controller.GPSController;
 import com.P8.GPS.DTO.AttractionDTO;
 import com.P8.GPS.DTO.LocationDTO;
 import com.P8.GPS.DTO.VisitedLocationDTO;
@@ -8,6 +9,8 @@ import com.P8.GPS.DTO.VisitedLocationDTO;
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,8 @@ import java.util.UUID;
 @Repository
 public class GPSServiceImpl implements GPSService {
 
+    private Logger logger = LoggerFactory.getLogger(GPSServiceImpl.class);
+
     private final GpsUtil gpsUtil;
 
     public GPSServiceImpl() {
@@ -29,6 +34,8 @@ public class GPSServiceImpl implements GPSService {
 
     @Override
     public List<AttractionDTO> getAttractions(){
+
+        logger.debug("getAttractions");
 
         List<Attraction> attractions =  gpsUtil.getAttractions();
 
@@ -43,6 +50,8 @@ public class GPSServiceImpl implements GPSService {
 
     @Override
     public VisitedLocationDTO getUserLocation(UUID userID) {
+
+        logger.debug("getUserLocation");
 
         VisitedLocation visitedLocation = gpsUtil.getUserLocation(userID);
         LocationDTO locationDTO = new LocationDTO(visitedLocation.location.longitude, visitedLocation.location.latitude);
